@@ -15,7 +15,7 @@ var port = process.env.PORT || 4000;
 io.sockets.on('connection', function(socket) {
 
     socket.emit('message', {
-        text: 'Welcome!'
+        text: 'Welcome from Haitham!'
     });
 
     socket.on('subscribe', function(data) {
@@ -28,11 +28,12 @@ async.retry({
         interval: 1000
     },
     function(callback) {
+    console.log("define parameters");
         var hostName = process.env.MYSQL_DB_HOST || "account-database";
         var portNumber = process.env.MYSQL_DB_PORT || "3306";
         var username = process.env.MYSQL_DB_USER || "michaelbolton";
         var password = process.env.MYSQL_DB_PASSWORD || "password";
-
+console.log("define the client");
         var client = mysql.createConnection({
             host: hostName,
             port: portNumber,
